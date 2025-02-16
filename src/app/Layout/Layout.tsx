@@ -3,31 +3,21 @@ import { FC } from 'react';
 import { Stack } from '@mui/material';
 import { observer } from 'mobx-react';
 
-import { Algorithms } from '@models/algorithm.ts';
-import { AlgorithmStore } from '@store';
+import { VisualisationContent } from '@app/VisualisationContent';
+import { VisualisationSelect } from '@app/VisualisationSelect';
+import { VisualisationSettings } from '@app/VisualisationSettings';
+import { Main } from '@components/AppBar';
+import { UIStore } from '@store';
 
-export const Layout: FC = observer(() => {
-    const { initialState } = AlgorithmStore;
-
-    const values = initialState(Algorithms.BUBBLE_SORT);
-
-    return (
-        <Stack direction="row" gap={1} alignItems="end" mt={4}>
-            {values.map((value, index) => (
-                <div
-                    style={{
-                        textAlign: 'center',
-                        background: 'white',
-                        width: '30px',
-                        top: '0',
-                        height: `${value * 5}px`,
-                    }}
-                    // eslint-disable-next-line react/no-array-index-key
-                    key={index}
-                >
-                    {/* {value} */}
-                </div>
-            ))}
-        </Stack>
-    );
-});
+export const Layout: FC = observer(() => (
+    <Stack direction="row">
+        <VisualisationSelect />
+        <Main
+            leftBarOpened={UIStore.isVisualisationSelectOpened}
+            rightBarOpened={UIStore.isVisualisationSettingsOpened}
+        >
+            <VisualisationContent />
+        </Main>
+        <VisualisationSettings />
+    </Stack>
+));

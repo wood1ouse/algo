@@ -19,7 +19,9 @@
       "@app/*": ["./src/app/*"],
       "@models/*": ["./src/models/*"],
       "@store/*": ["./src/store"],
-      "@store": ["./src/store"]},
+      "@store": ["./src/store"],
+      "@components/*": ["./src/theme/components/*"]
+    },
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

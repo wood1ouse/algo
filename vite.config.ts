@@ -20,6 +20,7 @@ export default defineConfig({
             '@app': src('app'),
             '@models': src('models'),
             '@store': src('store'),
+            '@components': src('theme', 'components'),
         },
     },
 });
