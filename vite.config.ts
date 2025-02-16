@@ -18,6 +18,8 @@ export default defineConfig({
     resolve: {
         alias: {
             '@app': src('app'),
+            '@models': src('models'),
+            '@store': src('store'),
         },
     },
 });
